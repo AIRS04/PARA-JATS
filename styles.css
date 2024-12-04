@@ -1,0 +1,92 @@
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%);
+    overflow: hidden;
+    font-family: 'Pacifico', cursive;
+}
+
+#container {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.heart {
+    position: absolute;
+    cursor: pointer;
+    user-select: none;
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.heart:hover {
+    transform: scale(1.1);
+    filter: brightness(1.2);
+}
+
+.heart::before,
+.heart::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    width: 52px;
+    height: 80px;
+    border-radius: 50px 50px 0 0;
+    background: linear-gradient(135deg, #ff6b6b, #feca57);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.heart::before {
+    left: 50px;
+    transform: rotate(-45deg);
+    transform-origin: 0 100%;
+}
+
+.heart::after {
+    left: 0;
+    transform: rotate(45deg);
+    transform-origin: 100% 100%;
+}
+
+.heart-text {
+    position: relative;
+    z-index: 1;
+    color: white;
+    font-size: 18px;
+    text-align: center;
+    line-height: 100px;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    25% { transform: translateY(-20px) rotate(-5deg); }
+    75% { transform: translateY(20px) rotate(5deg); }
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+#counter {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    font-size: 24px;
+    color: white;
+    background-color: rgba(0,0,0,0.5);
+    padding: 10px 20px;
+    border-radius: 20px;
+    z-index: 1000;
+}
+
+@keyframes colorChange {
+    0% { filter: hue-rotate(0deg); }
+    100% { filter: hue-rotate(360deg); }
+}
